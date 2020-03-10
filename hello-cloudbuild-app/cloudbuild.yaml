@@ -33,7 +33,7 @@ steps:
 
 # Twistcli Scan before it is pushed to the registry
 - name: 'gcr.io/gcp-gcs-pso/cloud-build-twistcli'
-  args: ['/twistcli.sh','gcr.io/$PROJECT_ID/hello-cloudbuild:$_SHORT_SHA1']
+  args: ['twistcli.sh','gcr.io/$PROJECT_ID/hello-cloudbuild:$_SHORT_SHA1']
   id: Scan
   env:
   - 'TL_CONSOLE_URL=$_TWISTLOCK_URL'
