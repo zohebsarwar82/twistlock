@@ -41,8 +41,8 @@ steps:
   - 'VULN_THRESHOLD=$_VULNERABILITY_THRESHOLD'
   - 'COMP_THRESHOLD=$_COMPLIANCE_THRESHOLD'
   - 'PROJECT_NAME=$_PROJECT_NAME'
-  secretEnv:
-  - 'TL_PASS'
+ # secretEnv:
+  - 'TL_PASS'='Paloalto@919'
 
 # This step pushes the image to Container Registry
 # The PROJECT_ID and SHORT_SHA variables are automatically
@@ -94,18 +94,18 @@ steps:
 
 
 substitutions:
-    _TWISTLOCK_URL: 'https://console-master-summit.andreas.lab.twistlock.com'
-    _TWISTLOCK_USER: 'andreas'
+    _TWISTLOCK_URL: 'https://twistlockdev.onedirect.com.au'
+    _TWISTLOCK_USER: 'zoheb.sarwar@anz.com'
     _VULNERABILITY_THRESHOLD: 'critical'
     _COMPLIANCE_THRESHOLD: 'critical'
-    _PROJECT_NAME: 'google'
+    _PROJECT_NAME: 'gcp-gcs-pso'
 
 images:
 - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
 
-secrets:
-- kmsKeyName: projects/twistlock-cto-partners/locations/global/keyRings/andreas/cryptoKeys/PASSWORD
-  secretEnv:
-    TL_PASS: CiQAoj7+k2decZfUMvQb3LZJrFZbf9sTE085j1n4mLDy1UJ9P/ASMwBEoFofR09RO9nx/BXpbcyPMVSU4+yLcfJwKM5pqGjklA3qJ+NpgBCndDa5nkCMVrcJAw==
+#secrets:
+#- kmsKeyName: projects/twistlock-cto-partners/locations/global/keyRings/andreas/cryptoKeys/PASSWORD
+#  secretEnv:
+#    TL_PASS: CiQAoj7+k2decZfUMvQb3LZJrFZbf9sTE085j1n4mLDy1UJ9P/ASMwBEoFofR09RO9nx/BXpbcyPMVSU4+yLcfJwKM5pqGjklA3qJ+NpgBCndDa5nkCMVrcJAw==
 
 # [END cloudbuild-trigger-cd]
