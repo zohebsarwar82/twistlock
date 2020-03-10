@@ -41,8 +41,9 @@ steps:
   - 'VULN_THRESHOLD=$_VULNERABILITY_THRESHOLD'
   - 'COMP_THRESHOLD=$_COMPLIANCE_THRESHOLD'
   - 'PROJECT_NAME=$_PROJECT_NAME'
+  - 'TL_PASS=$_TWISTLOCK_PASS'
  # secretEnv:
-  - 'TL_PASS'='Paloalto@919'
+ # - 'TL_PASS'='Paloalto@919'
 
 # This step pushes the image to Container Registry
 # The PROJECT_ID and SHORT_SHA variables are automatically
@@ -99,6 +100,7 @@ substitutions:
     _VULNERABILITY_THRESHOLD: 'critical'
     _COMPLIANCE_THRESHOLD: 'critical'
     _PROJECT_NAME: 'gcp-gcs-pso'
+    _TWISTLOCK_PASS: 'Paloalto@919'
 
 images:
 - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
