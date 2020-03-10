@@ -28,12 +28,12 @@ steps:
   args:
   - 'build'
   - '-t'
-  - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$_SHORT_SHA1'
   - '.'
 
 # Twistcli Scan before it is pushed to the registry
 - name: 'gcr.io/gcp-gcs-pso/cloud-build-twistcli'
-  args: ['/twistcli.sh','gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA']
+  args: ['/twistcli.sh','gcr.io/$PROJECT_ID/hello-cloudbuild:$_SHORT_SHA1']
   id: Scan
   env:
   - 'TL_CONSOLE_URL=$_TWISTLOCK_URL'
@@ -50,7 +50,7 @@ steps:
   id: Push
   args:
   - 'push'
-  - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$_SHORT_SHA1'
 # [END cloudbuild]
 
 # [START cloudbuild-trigger-cd]
@@ -86,7 +86,7 @@ steps:
     set -x && \
     cd cloud-summit-env && \
     git add kubernetes.yaml && \
-    git commit -m "Deploying image gcr.io/${PROJECT_ID}/hello-cloudbuild:${SHORT_SHA}
+    git commit -m "Deploying image gcr.io/${PROJECT_ID}/hello-cloudbuild:${_SHORT_SHA1}
     Built from commit ${COMMIT_SHA} of repository hello-cloudbuild-app
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
     git push origin candidate
@@ -99,9 +99,10 @@ substitutions:
     _COMPLIANCE_THRESHOLD: 'critical'
     _PROJECT_NAME: 'gcp-gcs-pso'
     _TWISTLOCK_PASS: 'Paloalto@919'
+    _SHORT_SHA1: '123'
     
 images:
-- 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
+- 'gcr.io/$PROJECT_ID/hello-cloudbuild:$_SHORT_SHA1'
 
 #secrets:
 #- kmsKeyName: projects/twistlock-cto-partners/locations/global/keyRings/andreas/cryptoKeys/PASSWORD
