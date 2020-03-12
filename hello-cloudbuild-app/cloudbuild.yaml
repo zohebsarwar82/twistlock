@@ -47,7 +47,7 @@ steps:
 
 substitutions:
     _TWISTLOCK_URL: 'https://twistlockdev.onedirect.com.au'
-    _TWISTLOCK_USER: 'zoheb.sarwar@anz.com'
+    _TWISTLOCK_USER: 'CIUser'
     _VULNERABILITY_THRESHOLD: 'critical'
     _COMPLIANCE_THRESHOLD: 'critical'
     _PROJECT_NAME: 'gcp-gcs-pso'
