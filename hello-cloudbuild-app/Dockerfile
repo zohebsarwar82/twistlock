@@ -18,5 +18,6 @@ RUN pip install flask
 WORKDIR /app
 COPY app.py /app/app.py
 ENTRYPOINT ["python"]
+LABEL app='hello world'
 CMD ["/app/app.py"]
 # [END dockerfile]
