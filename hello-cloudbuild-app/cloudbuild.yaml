@@ -24,7 +24,7 @@ steps:
   - '.'
 
 # Twistcli Scan before it is pushed to the registry
-- name: 'gcr.io/gcp-gcs-pso/cloud-build-twistcli'
+- name: 'gcr.io/anz-sec-gke-dev-dc652a/cloud-build-twistcli'
   args: ['/twistcli.sh','gcr.io/$PROJECT_ID/hello-cloudbuild:$_SHORT_SHA1']
   id: Scan
   env:
@@ -50,7 +50,7 @@ substitutions:
     _TWISTLOCK_USER: 'CIUser'
     _VULNERABILITY_THRESHOLD: 'critical'
     _COMPLIANCE_THRESHOLD: 'critical'
-    _PROJECT_NAME: 'gcp-gcs-pso'
+    _PROJECT_NAME: 'if_using_Projects'
     _TWISTLOCK_PASS: 'Paloalto@919'
     _SHORT_SHA1: '999'
     
