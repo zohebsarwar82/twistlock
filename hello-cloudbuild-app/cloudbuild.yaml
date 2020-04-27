@@ -52,7 +52,7 @@ substitutions:
     _COMPLIANCE_THRESHOLD: 'critical'
     _PROJECT_NAME: 'if_using_Projects'
     _TWISTLOCK_PASS: 'Paloalto@919'
-    _SHORT_SHA1: '999'
+    _SHORT_SHA1: '000'
     
 images:
 - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$_SHORT_SHA1'
